@@ -35,7 +35,7 @@
               <h1>THANK YOU !</h1>
               <h2>Your request has been submitted successfully.</h2>
               <p>One of our experts will get in touch with you shortly.</p>
-              <a href="{{ route('form.create') }}">Back To Homepage <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+              <a href="{{ route('form.index') }}">Back To Homepage <i class="fa fa-angle-right" aria-hidden="true"></i></a>
           </div>
       </div>
     </div>

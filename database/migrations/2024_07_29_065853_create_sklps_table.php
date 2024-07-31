@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('date_birth')->nullable();
             $table->string('blood_group');
             $table->string('village');
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->string('mobile_number');
             $table->string('whatsapp_number')->default('')->nullable();
             $table->string('email')->nullable();
@@ -44,6 +44,7 @@ return new class extends Migration
             $table->string('job_country')->nullable();
             $table->string('job_city')->nullable();
             $table->string('current_address')->default('')->nullable();
+            $table->string('current_runningaddress')->default('')->nullable();
             $table->string('students_work_company')->nullable();
             $table->string('many_resources')->nullable();
             $table->string('feedback_samaj')->nullable();

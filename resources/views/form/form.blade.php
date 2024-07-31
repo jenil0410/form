@@ -63,16 +63,16 @@
                 <div class="row form-row">
                     <div class="form-group col-md-4">
                         <label id="surnameLabel">Surname - અટક *</label>
-                        <input name="surname" required class="form-control" type="text">
+                        <input name="surname"  class="form-control" type="text" value="{{ old('surname') }}">
                         <small class="text-danger" id="error"> @error('surname')
                                 {{ $message }}
                             @enderror
                         </small>
-
                     </div>
+
                     <div class="form-group col-md-4">
                         <label>First Name - નામ *</label>
-                        <input name="first_name" required class="form-control" type="text">
+                        <input name="first_name"  class="form-control" type="text" value="{{ old('first_name') }}">
                         <small class="text-danger" id="error1">
                             @error('first_name')
                                 {{ $message }}
@@ -81,7 +81,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>Father Name - પિતા નામ *</label>
-                        <input name="father_name" required class="form-control" type="text">
+                        <input name="father_name" class="form-control" type="text" value="{{ old('father_name') }}">
                         <small class="text-danger" id="error-father_name">
                             @error('father_name')
                                 {{ $message }}
@@ -91,148 +91,158 @@
                     <div class="form-group col-md-4">
                         <label>Date Of Birth - જન્મ તારીખ</label>
                         <input name="date_birth" id="dob" class="form-control flatpickr"
-                            placeholder="Date of Birth" value="" type="text">
+                            placeholder="Date of Birth" value="" type="text" value="{{ old('date_birth') }}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Blood Group - બ્લડ ગ્રુપ *</label>
-                        <select class="form-select" required name="blood_group">
+                        <select class="form-select" name="blood_group" >
                             <option value="">Select Blood Group</option>
-                            <option value="A+">A+</option>
-                            <option value="A-">A-</option>
-                            <option value="B+">B+</option>
-                            <option value="B-">B-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
-                            <option value="O+">O+</option>
-                            <option value="O-">O-</option>
+                            <option value="A+" {{old('blood_group') === 'A+'? 'selected' : ''}}>A+</option>
+                            <option value="A-" {{old('blood_group') === 'A-'? 'selected' : ''}}>A-</option>
+                            <option value="B+" {{old('blood_group') === 'B+'? 'selected' : ''}}>B+</option>
+                            <option value="B-" {{old('blood_group') === 'B-'? 'selected' : ''}}>B-</option>
+                            <option value="AB+" {{old('blood_group') === 'AB+'? 'selected' : ''}}>AB+</option>
+                            <option value="AB-" {{old('blood_group') === 'AB-'? 'selected' : ''}}>AB-</option>
+                            <option value="O+" {{old('blood_group') === 'O+'? 'selected' : ''}}>O+</option>
+                            <option value="O-" {{old('blood_group') === 'O-'? 'selected' : ''}}>O-</option>
                         </select>
+                        <small class="text-danger" id="error-address">
+                            @error('blood_group')
+                               {{ $message }} 
+                            @enderror
+                        </small>
                     </div>
                     <div class="form-group col-md-4">
                         <label>Village - મૂળ ગામ *</label>
-                        <select class="form-select" required name="village">
+                        <select class="form-select" name="village" >
                             <option value="" selected="">Select Village</option>
-                            <option value="Anjar">
+                            <option value="Anjar" {{old('village') === 'Anjar'? 'selected' : ''}}>
                                 Anjar
                             </option>
-                            <option value="Asambiya">
+                            <option value="Asambiya"  {{old('village') === 'Asambiya'? 'selected' : ''}}>
                                 Asambiya
                             </option>
-                            <option value="Baladia">
+                            <option value="Baladia"  {{old('village') === 'Baladia'? 'selected' : ''}}>
                                 Baladia
                             </option>
-                            <option value="Bharapur">
+                            <option value="Bharapur"  {{old('village') === 'Bharapur'? 'selected' : ''}}>
                                 Bharapur
                             </option>
-                            <option value="Bharasar">
+                            <option value="Bharasar"  {{old('village') === 'Bharasar'? 'selected' : ''}}>
                                 Bharasar
                             </option>
-                            <option value="Bhuj">
+                            <option value="Bhuj"  {{old('village') === 'Bhuj'? 'selected' : ''}}>
                                 Bhuj
                             </option>
-                            <option value="Dahisara">
+                            <option value="Dahisara"  {{old('village') === 'Dahisara'? 'selected' : ''}}>
                                 Dahisara
                             </option>
-                            <option value="Don">
+                            <option value="Don"  {{old('village') === 'Don'? 'selected' : ''}}>
                                 Don
                             </option>
-                            <option value="Durgapar">
+                            <option value="Durgapar"  {{old('village') === 'Durgapar'? 'selected' : ''}}>
                                 Durgapar
                             </option>
-                            <option value="Fotdi">
+                            <option value="Fotdi"  {{old('village') === 'Fotdi'? 'selected' : ''}}>
                                 Fotdi
                             </option>
-                            <option value="Godhra">
+                            <option value="Godhra"  {{old('village') === 'Godhra'? 'selected' : ''}}>
                                 Godhra
                             </option>
-                            <option value="Godpar">
+                            <option value="Godpar"  {{old('village') === 'Godpar'? 'selected' : ''}}>
                                 Godpar
                             </option>
-                            <option value="Goniyasar">
+                            <option value="Goniyasar"  {{old('village') === 'Goniyasar'? 'selected' : ''}}>
                                 Goniyasar
                             </option>
-                            <option value="Haripur">
+                            <option value="Haripur"  {{old('village') === 'Haripur'? 'selected' : ''}}>
                                 Haripur
                             </option>
-                            <option value="Jakhaniya">
+                            <option value="Jakhaniya"  {{old('village') === 'Jakhaniya'? 'selected' : ''}}>
                                 Jakhaniya
                             </option>
-                            <option value="Kera">
+                            <option value="Kera"  {{old('village') === 'Kera'? 'selected' : ''}}>
                                 Kera
                             </option>
-                            <option value="Koday">
+                            <option value="Koday"  {{old('village') === 'Koday'? 'selected' : ''}}>
                                 Koday
                             </option>
-                            <option value="Kodki">
+                            <option value="Kodki"  {{old('village') === 'Kodki'? 'selected' : ''}}>
                                 Kodki
                             </option>
-                            <option value="Kundanpar">
+                            <option value="Kundanpar"  {{old('village') === 'Kundanpar'? 'selected' : ''}}>
                                 Kundanpar
                             </option>
-                            <option value="Madhapar">
+                            <option value="Madhapar"  {{old('village') === 'Madhapar'? 'selected' : ''}}>
                                 Madhapar
                             </option>
-                            <option value="Mandvi">
+                            <option value="Mandvi"  {{old('village') === 'Mandvi'? 'selected' : ''}}>
                                 Mandvi
                             </option>
-                            <option value="Mankuva">
+                            <option value="Mankuva"  {{old('village') === 'Mankuva'? 'selected' : ''}}>
                                 Mankuva
                             </option>
-                            <option value="Maska">
+                            <option value="Maska"  {{old('village') === 'Maska'? 'selected' : ''}}>
                                 Maska
                             </option>
-                            <option value="Meghpar">
+                            <option value="Meghpar"  {{old('village') === 'Meghpar'? 'selected' : ''}}>
                                 Meghpar
                             </option>
-                            <option value="Merau">
+                            <option value="Merau"  {{old('village') === 'Merau'? 'selected' : ''}}>
                                 Merau
                             </option>
-                            <option value="Mirjapar">
+                            <option value="Mirjapar"  {{old('village') === 'Mirjapar'? 'selected' : ''}}>
                                 Mirjapar
                             </option>
-                            <option value="Nagalpur">
+                            <option value="Nagalpur"  {{old('village') === 'Nagalpur'? 'selected' : ''}}>
                                 Nagalpur
                             </option>
-                            <option value="Naranpur">
+                            <option value="Naranpur"  {{old('village') === 'Naranpur'? 'selected' : ''}}>
                                 Naranpur
                             </option>
-                            <option value="Rampar">
+                            <option value="Rampar"  {{old('village') === 'Rampar'? 'selected' : ''}}>
                                 Rampar
                             </option>
-                            <option value="Rayan">
+                            <option value="Rayan"  {{old('village') === 'Rayan'? 'selected' : ''}}>
                                 Rayan
                             </option>
-                            <option value="Samatra">
+                            <option value="Samatra"  {{old('village') === 'Samatra'? 'selected' : ''}}>
                                 Samatra
                             </option>
-                            <option value="Sarli">
+                            <option value="Sarli"  {{old('village') === 'Sarli'? 'selected' : ''}}>
                                 Sarli
                             </option>
-                            <option value="Shirva">
+                            <option value="Shirva"  {{old('village') === 'Shirva'? 'selected' : ''}}>
                                 Shirva
                             </option>
-                            <option value="Sukhpar - Junavas">
+                            <option value="Sukhpar - Junavas"  {{old('village') === 'Sukhpar - Junavas'? 'selected' : ''}}>
                                 Sukhpar - Junavas
                             </option>
-                            <option value="Sukhpar - Madanpur">
+                            <option value="Sukhpar - Madanpur"  {{old('village') === 'Sukhpar - Madanpur'? 'selected' : ''}}>
                                 Sukhpar - Madanpur
                             </option>
-                            <option value="Sukhpar - Roha">
+                            <option value="Sukhpar - Roha"  {{old('village') === 'Sukhpar - Roha'? 'selected' : ''}}>
                                 Sukhpar - Roha
                             </option>
-                            <option value="Surajpur">
+                            <option value="Surajpur"  {{old('village') === 'Surajpur'? 'selected' : ''}}>
                                 Surajpur
                             </option>
-                            <option value="Vadasar">
+                            <option value="Vadasar"  {{old('village') === 'Vadasar'? 'selected' : ''}}>
                                 Vadasar
                             </option>
-                            <option value="Vekra">
+                            <option value="Vekra"  {{old('village') === 'Vekra'? 'selected' : ''}}>
                                 Vekra
                             </option>
                         </select>
+                        <small class="text-danger" id="error-address">
+                            @error('village')
+                               {{ $message }} 
+                            @enderror
+                        </small>
                     </div>
                     <div class="form-group col-md-12">
                         <label>Address - મૂળ સરનામું</label>
-                        <input name="address" id="main_address" class="form-control" type="text">
+                        <input name="address" id="main_address" class="form-control" type="text" value="{{ old('address') }}">
                         <small class="text-danger" id="error-address"></small>
                     </div>
                     <div class="form-group col-md-12 col-xl-4 col-lg-6 col-sm-6">
@@ -242,7 +252,7 @@
                         <input type="tel" id="mobile_number" name="mobile_number" placeholder="Mobile Number"
                             class="form-control form-control-md"
                             oninput="javascript: if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g, ''); if (this.value.length > 10) this.value = this.value.slice(0, 10);"
-                            value="" required />
+                             value="{{ old('mobile_number') }}"/>
                         <input type="hidden" id="mobile_number_dialCode" name="mobile_number_dialCode"
                             value="" />
                         <input type="hidden" id="full_mobile_number" name="full_mobile_number" value="" />
@@ -260,7 +270,7 @@
                         <input type="tel" id="whatsapp_number" name="whatsapp_number" value=""
                             placeholder="Whatsapp Number"
                             oninput="javascript: if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g, ''); if (this.value.length > 10) this.value = this.value.slice(0, 10);"
-                            class="form-control form-control-md" />
+                            class="form-control form-control-md" value="{{ old('whatsapp_number') }}"/>
                         <input type="hidden" id="whatsapp_number_dialCode" name="whatsapp_number_dialCode"
                             value="" />
                         <input type="hidden" id="full_whatsapp_number" name="full_whatsapp_number"
@@ -268,7 +278,7 @@
                     </div>
                     <div class="form-group col-md-12 col-xl-4 col-lg-12 col-sm-12">
                         <label>E - Mail Address - ઈ - મેઈલ એડ્રેસ</label>
-                        <input type="email" name="email" class="form-control">
+                        <input type="email" name="email" class="form-control"  value="{{ old('email') }}">
                     </div>
                 </div>
 
@@ -279,8 +289,8 @@
                         <label for="file-upload" class="custom-choose-btn" id="custom-btn"><img
                                 src="image/arrow.png">Choose
                             File</label>
-                        <input type="file" id="file-upload" class="form-control imageUpload" value=""
-                            name="user_image" style="display: none;" onchange="">
+                        <input type="file" id="file-upload" class="form-control imageUpload" 
+                            name="user_image" style="display: none;" onchange="" value="{{ old('user_image') }}">
                         <input name="userimage" id="userimage" value="" type="hidden"
                             class="form-control" />
                         <label class="form-label col-12">&nbsp;</label>
@@ -302,11 +312,11 @@
                     <div class="form-group col-md-6">
                         <label>Admission Year - સંસ્થામાં કયા વર્ષમાં પ્રવેશ મેળવેલ</label>
                         <input type="text" id="admission_year" name="admission_year" value=""
-                            class="form-control form-control-md admission_year_yearpicker">
+                            class="form-control form-control-md admission_year_yearpicker" value="{{ old('admission_year') }}">
                     </div>
                     <div class="form-group col-md-6">
                         <label>In Which Standard - કયા ધોરણમાં</label>
-                        <select class="form-select" name="standard">
+                        <select class="form-select" name="standard" value="{{ old('standard') }}">
                             <option value="6">
                                 6
                             </option>
@@ -354,11 +364,11 @@
                     <div class="form-group col-md-6">
                         <label>Leaving Year - સંસ્થા છોડવાનું વર્ષ</label>
                         <input type="year" id="leave_year" name="leave_year" value=""
-                            class="form-control form-control-md leave_year_yearpicker">
+                            class="form-control form-control-md leave_year_yearpicker" value="{{ old('leave_year') }}">
                     </div>
                     <div class="form-group col-md-6">
                         <label>Last Standard / Stream - અભ્યાસ છોડયાનું ધોરણ</label>
-                        <select class="form-select" name="last_standard">
+                        <select class="form-select" name="last_standard" value="{{ old('last_standard') }}">
                             <option value="6">
                                 6
                             </option>
@@ -405,15 +415,20 @@
                     </div>
                     <div class="form-group col-md-12 col-xl-4 col-lg-6 col-sm-6">
                         <label>Education Status - હાલ અભ્યાસ ચાલુ હોય તો વિગત *</label>
-                        <select class="form-select" id="selectCountry" required name="education_status">
+                        <select class="form-select" id="selectCountry" name="education_status" value="">
                             <option value="">Select Status</option>
-                            <option value="Running">Running</option>
+                            <option value="Running" >Running</option>
                             <option value="Finished">Finished</option>
                         </select>
+                        <small class="text-danger" id="error-business_name">
+                            @error('education_status')
+                                {{ $message }}
+                            @enderror
+                        </small>
                     </div>
                     <div class="form-group col-md-12 col-xl-4 col-lg-6 col-sm-6">
                         <label>Qualification Category લાયકાત શ્રેણી</label>
-                        <select class="form-select" name="qualification_category">
+                        <select class="form-select" name="qualification_category" value="{{ old('qualification_category') }}">
                             <option value="">Select Qualification Category</option>
                             <option value="SSC">
                                 SSC
@@ -443,22 +458,27 @@
                     </div>
                     <div class="form-group col-md-12 col-xl-4 col-lg-12 col-sm-12">
                         <label>Last Qualification - છેલ્લી શૈક્ષણિક લાયકાત</label>
-                        <input name="last_qualification" class="form-control" type="text">
+                        <input name="last_qualification" class="form-control" type="text" value="{{ old('last_qualification') }}">
                     </div>
                 </div>
                 <h2 class="sklps_heading">Current Info :</h2>
                 <div class="row form-row">
                     <div class="form-group col-md-12 col-xl-4 col-lg-6 col-sm-6 running-outputDiv">
                         <label>Work Status કાર્ય સ્થિતિ *</label>
-                        <select class="form-select" id="selectbusiness" name="work_status">
+                        <select class="form-select" id="selectbusiness" name="work_status"  value="{{ old('work_status') }}">
                             <option value="">Select Work Status</option>
-                            <option value="Business">Business</option>
-                            <option value="Job">Job</option>
+                            <option value="Business" >Business</option>
+                            <option value="Job" >Job</option>
                         </select>
+                        <small class="text-danger" id="error-business_name">
+                            @error('work_status')
+                                {{ $message }}
+                            @enderror
+                        </small>
                     </div>
                     <div class="form-group col-md-12 col-xl-4 col-lg-6 col-sm-6 running-outputDiv business-sector">
                         <label>Business Name - વ્યવસાયનું નામ *</label>
-                        <input name="business_name" class="form-control" id="business_title" type="text">
+                        <input name="business_name" class="form-control" id="business_title" type="text" value="{{ old('business_name') }}">
                         <small class="text-danger" id="error-business_name">
                             @error('business_name')
                                 {{ $message }}
@@ -468,38 +488,68 @@
                     <div class="form-group col-md-12 col-xl-4 col-lg-12 col-sm-12 running-outputDiv business-sector">
                         <label>Established Year - સ્થાપના વર્ષ *</label>
                         <input type="text" name="established_year" id="established_year"
-                            class="form-control established_year" placeholder="Select Year">
+                            class="form-control established_year" placeholder="Select Year" value="{{ old('established_year') }}">
+                            <small class="text-danger" id="error-business_name">
+                                @error('established_year')
+                                    {{ $message }}
+                                @enderror
+                            </small>
                     </div>
                     <div class="form-group col-md-6 running-outputDiv  business-sector">
                         <label>Business Category - વ્યવસાય શ્રેણી</label>
-                        <input name="business_category" class="form-control" id="business_category" type="text">
+                        <input name="business_category" class="form-control" id="business_category" type="text" value="{{ old('business_category') }}">
+                        <small class="text-danger" id="error-business_name">
+                            @error('business_category')
+                                {{ $message }}
+                            @enderror
+                        </small>
                     </div>
                     <div class="form-group col-md-6 running-outputDiv business-sector">
                         <label>Total Staff- કુલ સ્ટાફ</label>
-                        <input name="total_staff" class="form-control" id="total_staff" type="text">
+                        <input name="total_staff" class="form-control" id="total_staff" type="text" value="{{ old('total_staff') }}">
+                        <small class="text-danger" id="error-business_name">
+                            @error('total_staff')
+                                {{ $message }}
+                            @enderror
+                        </small>
                     </div>
                     <div class="form-group col-md-4 job-sector">
                         <label>Job Sector - જોબ સેક્ટર *</label>
-                        <select class="form-select" id="job_sector" name="job_sector">
+                        <select class="form-select" id="job_sector" name="job_sector" value="{{ old('job_sector') }}">
                             <option value="">Select Job Sector</option>
                             <option value="Government">Government</option>
                             <option value="Private">Private</option>
                         </select>
+                        <small class="text-danger" id="error-business_name">
+                            @error('job_sector')
+                                {{ $message }}
+                            @enderror
+                        </small>
                     </div>
                     <div class="form-group col-md-4 job-sector">
                         <label>Company Name - કંપની નું નામ *</label>
-                        <input name="company_name" class="form-control" id="company_name" type="text">
+                        <input name="company_name" class="form-control" id="company_name" type="text" value="{{ old('company_name') }}">
+                        <small class="text-danger" id="error-business_name">
+                            @error('company_name')
+                                {{ $message }}
+                            @enderror
+                        </small>
                     </div>
                     <small class="text-danger" id="error-company_name"></small>
                     <div class="form-group col-md-4 job-sector">
                         <label>Designation</label>
-                        <input name="designation" class="form-control" id="designation" type="text">
+                        <input name="designation" class="form-control" id="designation" type="text" value="{{ old('designation') }}">
+                        <small class="text-danger" id="error-business_name">
+                            @error('designation')
+                                {{ $message }}
+                            @enderror
+                        </small>
                     </div>
 
                     <div class="form-group col-md-6 business-sector">
                         <label>Country - દેશ *</label>
-                        <select class="form-select" id="business_country" name="business_country">
-                            <option value="">Select Country</option>
+                        <select class="form-select" id="business_country" name="business_country" value="{{ old('business_country') }}">
+                            <option value="" selected="">Select Country</option>
                             <option value="Afghanistan">
                                 Afghanistan
                             </option>
@@ -809,7 +859,7 @@
                             <option value="Iceland">
                                 Iceland
                             </option>
-                            <option value="India" selected="">
+                            <option value="India" >
                                 India
                             </option>
                             <option value="Indonesia">
@@ -1248,10 +1298,15 @@
                                 Zimbabwe
                             </option>
                         </select>
+                        <small class="text-danger" id="error-business_name">
+                            @error('business_country')
+                                {{ $message }}
+                            @enderror
+                        </small>
                     </div>
                     <div class="form-group col-md-6 running-outputDiv business-sector">
                         <label>City - શહેર *</label>
-                        <input name="business_city" id="business_city" class="form-control" type="text">
+                        <input name="business_city" id="business_city" class="form-control" type="text" value="{{ old('business_city') }}">
                         <small class="text-danger" id="error-business_city">
                             @error('business_name')
                                 {{ $message }}
@@ -1261,8 +1316,8 @@
 
                     <div class="form-group col-md-4 job-sector">
                         <label>Country - દેશ *</label>
-                        <select class="form-select" id="job_country" name="job_country">
-                            <option value="">Select Country</option>
+                        <select class="form-select" id="job_country" name="job_country" value="{{ old('job_country') }}">
+                            <option value="" selected="">Select Country</option>
                             <option value="Afghanistan">
                                 Afghanistan
                             </option>
@@ -1572,7 +1627,7 @@
                             <option value="Iceland">
                                 Iceland
                             </option>
-                            <option value="India" selected="">
+                            <option value="India" >
                                 India
                             </option>
                             <option value="Indonesia">
@@ -2011,17 +2066,27 @@
                                 Zimbabwe
                             </option>
                         </select>
+                        <small class="text-danger" id="error-business_name">
+                            @error('job_country')
+                                {{ $message }}
+                            @enderror
+                        </small>
                     </div>
                     <div class="form-group col-md-4 job-sector">
                         <label>City - શહેર *</label>
-                        <input name="job_city" id="job_city" class="form-control" type="text">
+                        <input name="job_city" id="job_city" class="form-control" type="text" value="{{ old('job_city') }}">
+                        <small class="text-danger" id="error-business_name">
+                            @error('job_city')
+                                {{ $message }}
+                            @enderror
+                        </small>
                     </div>
                     <small class="text-danger" id="error-job_city"></small>
                     <div class="form-group col-md-12 running-outputDiv business-sector">
                         <label><input type="checkbox" id="iSameAsMainAddress" name="iSameAsMainAddress"> As per Above
                             Address
                             - ઉપરના મૂળ સરનામા મુજબ *</label>
-                        <input id="current_address" name="current_address" class="form-control" type="text">
+                        <input id="current_address" name="current_address" class="form-control" type="text"  value="{{ old('current_address') }}">
                         <small class="text-danger" id="error-file-upload">
                             @error('current_address')
                                 {{ $message }}
@@ -2034,7 +2099,12 @@
                             - ઉપરના
                             મૂળ સરનામા મુજબ *</label>
                         <input id="current_runningaddress" name="current_runningaddress" class="form-control"
-                            type="text">
+                            type="text" value="{{ old('current_runningaddress') }}">
+                            <small class="text-danger" id="error-file-upload">
+                                @error('current_runningaddress')
+                                    {{ $message }}
+                                @enderror
+                            </small>
                     </div>
 
                     <div class="form-group col-md-6 radio-block running-outputDiv business-sector">
@@ -2049,7 +2119,7 @@
                     </div>
                     <div class="form-group col-md-6 many-resources running-outputDiv business-sector">
                         <label>How Many Resources - કેટલા સંસાધનો</label>
-                        <input name="many_resources" class="form-control" type="text">
+                        <input name="many_resources" class="form-control" type="text" value="{{ old('many_resources') }}">
                     </div>
                     <div id="job-outputdiv" style="display: none;">
 
@@ -2059,22 +2129,21 @@
                 <div class="row form-row">
                     <div class="form-group col-md-6">
                         <label>Your Feedback for Samaj</label>
-                        <textarea name="feedback_samaj" class="form-control"></textarea>
+                        <textarea name="feedback_samaj" class="form-control" >{{ old('feedback_samaj') }}</textarea>
                     </div>
                     <div class="form-group col-md-6">
                         <label>Any Suggestions</label>
-                        <textarea name="suggestions" class="form-control"></textarea>
+                        <textarea name="suggestions" class="form-control">{{ old('suggestions') }}</textarea>
                     </div>
                 </div>
                 <div class="row form-row foter">
-                    <input type="checkbox" id="checkbox" name="attend_samaj_innugration" value="Yes"> <label>Are
+                    <input type="checkbox" id="checkbox" name="attend_samaj_innugration" value="Yes" {{ old('attend_samaj_innugration') ? 'checked' : '' }}> <label>Are
                         you going to
                         attend New Samaj Innugration Function on 21 - 22 Dec 2024?</label>
                 </div>
                 <div class="row form-row">
                     <div class="form-group col-md-12 mb-0">
-                        <input id="submit" class="btn theme-btn" type="submit" value="SUBMIT" name="getstarted"
-                            onclick="return validateForm()">
+                        <input id="submit" class="btn theme-btn" type="submit" value="SUBMIT" name="getstarted" onclick="return selected()">
                     </div>
                 </div>
             </form>
@@ -2527,22 +2596,22 @@
         $('#selectCountry').change(function() {
 
             if ($(this).val() == 'Finished') {
-                $("#selectbusiness").attr("required", true);
+                $("#selectbusiness").attr("required", false);
                 $("#current_runningaddress").attr("required", false);
             } else if ($(this).val() == 'Running') {
                 $("#selectbusiness").attr("required", false);
-                $("#business_country").attr("required", true);
-                $("#current_runningaddress").attr("required", true);
+                $("#business_country").attr("required", false);
+                $("#current_runningaddress").attr("required", false);
             }
         });
 
         $('#selectbusiness').change(function() {
 
             if ($(this).val() == 'Business') {
-                $("#business_title").attr("required", true);
-                $("#established_year").attr("required", true);
-                $("#business_country").attr("required", true);
-                $("#business_city").attr("required", true);
+                $("#business_title").attr("required", false);
+                $("#established_year").attr("required", false);
+                $("#business_country").attr("required", false);
+                $("#business_city").attr("required", false);
                 $("#current_address").attr("required", false);
                 $("#business_category").attr("required", false);
                 $("#total_staff").attr("required", false);
@@ -2558,7 +2627,7 @@
                 $("#business_category").attr("required", false);
                 $("#total_staff").attr("required", false);
                 $("#current_address").attr("required", false);
-                $("#job_sector").attr("required", true);
+                $("#job_sector").attr("required", false);
                 $("#job_city").attr("required", false);
                 $("#company_name").attr("required", false);
                 $("#designation").attr("required", false);
@@ -2579,7 +2648,8 @@
     </script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
-            jQuery("#selectbusiness").change(function() {
+            jQuery("#selectbusiness").change(function(event) {
+                event.preventDefault();
                 var selectedOption = jQuery(this).val();
                 if (selectedOption === "Business") {
                     jQuery(".job-sector").hide();
@@ -2592,6 +2662,18 @@
         });
     </script>
     <script>
+        function selected() {
+            var selectedOption = jQuery('input[name=work_status]').val();
+                if (selectedOption === "Business") {
+                    jQuery(".job-sector").hide();
+                    jQuery(".business-sector").show();
+                } else if (selectedOption === "Job") {
+                    jQuery(".job-sector").show();
+                    jQuery(".business-sector").hide();
+                }
+        };
+    </script>
+    {{-- <script>
         function validateForm() {
 
             let surname = $("input[name=surname]").val();
@@ -2668,7 +2750,7 @@
                 $("input[name=surname]").focus();
             }
         }
-    </script>
+    </script> --}}
 
     {{-- <script>
          function validate(){

@@ -31,8 +31,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/form', [FormController::class, 'create'])->name('form.create');
-    Route::get('/ThankYou', [FormController::class, 'index'])->name('form.index');
+    Route::get('/index', [FormController::class, 'index'])->name('form.index');
     Route::post('/formpost', [FormController::class, 'store'])->name('form.store');
+    Route::get('/thankyou', [FormController::class, 'thankyou'])->name('form.thankyou');
 });
 
 require __DIR__.'/auth.php';
